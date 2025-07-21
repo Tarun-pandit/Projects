@@ -1,0 +1,19 @@
+<h1>Bank Details</h1>
+
+<div>
+  <p><strong>Bank Code:</strong> <%= bank.bankCode %></p>
+  <p><strong>Bank Name:</strong> <%= bank.bankName %></p>
+  <p><strong>Headquarters:</strong> <%= bank.headquarters %></p>
+  <p><strong>Number of Branches:</strong> <%= bank.numberOfBranches %></p>
+  <p><strong>Total Assets:</strong> <%= bank.totalAssets %></p>
+  <p><strong>Is International:</strong> <%= bank.isInternational ? 'Yes' : 'No' %></p>
+  <p><strong>Established Year:</strong> <%= bank.establishedYear %></p>
+  <p><strong>Contact Email:</strong> <%= bank.contactEmail %></p>
+</div>
+
+<a href="/banks/<%= bank._id %>/edit">Edit</a>
+<form action="/banks/<%= bank._id %>?_method=DELETE" method="POST" style="display: inline;">
+  <button type="submit">Delete</button>
+</form>
+
+<a href="/banks">Back to All Banks</a>

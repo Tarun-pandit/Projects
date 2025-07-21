@@ -1,0 +1,34 @@
+<h1>All Banks</h1>
+
+<% if (banks.length > 0) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Bank Code</th>
+        <th>Bank Name</th>
+        <th>Headquarters</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% banks.forEach(bank => { %>
+        <tr>
+          <td><%= bank.bankCode %></td>
+          <td><%= bank.bankName %></td>
+          <td><%= bank.headquarters %></td>
+          <td>
+            <a href="/banks/<%= bank._id %>">View</a>
+            <a href="/banks/<%= bank._id %>/edit">Edit</a>
+            <form action="/banks/<%= bank._id %>?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <p>No banks found. Add a new bank to get started.</p>
+<% } %>
+
+<a href="/banks/new">Add New Bank</a>

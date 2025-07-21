@@ -1,0 +1,51 @@
+<h1>Edit Bank Details</h1>
+
+<form action="/banks/<%= bank._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="bankCode">Bank Code:</label>
+    <input type="text" id="bankCode" name="bankCode" value="<%= bank.bankCode %>" readonly>
+  </div>
+  
+  <div>
+    <label for="bankName">Bank Name:</label>
+    <input type="text" id="bankName" name="bankName" value="<%= bank.bankName %>" required>
+  </div>
+
+  <div>
+    <label for="headquarters">Headquarters:</label>
+    <input type="text" id="headquarters" name="headquarters" value="<%= bank.headquarters %>" required>
+  </div>
+
+  <div>
+    <label for="numberOfBranches">Number of Branches:</label>
+    <input type="number" id="numberOfBranches" name="numberOfBranches" value="<%= bank.numberOfBranches %>" required>
+  </div>
+
+  <div>
+    <label for="totalAssets">Total Assets:</label>
+    <input type="number" id="totalAssets" name="totalAssets" value="<%= bank.totalAssets %>" required>
+  </div>
+
+  <div>
+    <label for="isInternational">Is International:</label>
+    <select id="isInternational" name="isInternational" required>
+      <option value="true" <%= bank.isInternational ? 'selected' : '' %>>Yes</option>
+      <option value="false" <%= !bank.isInternational ? 'selected' : '' %>>No</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="establishedYear">Established Year:</label>
+    <input type="number" id="establishedYear" name="establishedYear" value="<%= bank.establishedYear %>" required>
+  </div>
+
+  <div>
+    <label for="contactEmail">Contact Email:</label>
+    <input type="email" id="contactEmail" name="contactEmail" value="<%= bank.contactEmail %>" required>
+  </div>
+
+  <button type="submit">Update Bank</button>
+</form>
+
+<a href="/banks/<%= bank._id %>">Back to Bank Details</a>
+<a href="/banks">Back to All Banks</a>
